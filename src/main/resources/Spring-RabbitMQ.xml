@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="rabbitConnFactory"
+		class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+		<constructor-arg>
+			<value>#{systemEnvironment['RABBITMQ_SERVER']}</value>
+		</constructor-arg>
+		<property name="username" value="guest" />
+		<property name="password" value="guest" />
+		<property name="virtualHost" value="/" />
+		<property name="port" value="5672" />
+	</bean>
+</beans>
